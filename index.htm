@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Seesaw Simulation</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="infolar">
+        <div>
+          Left: <span id="leftWeight">0</span> kg | Right:
+          <span id="rightWeight">0</span> kg
+        </div>
+        <div>Angle: <span id="angleText">0.0</span>°</div>
+      </div>
+
+      <div class="scene">
+        <div class="ground"></div>
+        <div class="ucgen"></div>
+        <div id="plank" class="plank">
+          <div id="objects" class="objects"></div>
+        </div>
+      </div>
+
+      <div class="hint">
+        Click on the plank to add a mass (1–10 kg). The seesaw tilts based on
+        torque difference.
+      </div>
+
+      <div class="controls">
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>
