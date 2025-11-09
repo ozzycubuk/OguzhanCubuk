@@ -33,4 +33,4 @@ Comments in the code have been annotated with chatGPT in order to let people und
 
 
 --Change after sending the demo video--
-I have made a change that effects the color of the objects created. As the objects get heavier the blue color of the object gets darker.
+I have made a change that effects the color of the objects created. As the objects get heavier the blue color of the object gets darker. I have asked about the calculation amounts to chatGPT in order to make them make sense.
