@@ -32,5 +32,5 @@ Comments in the code have been annotated with chatGPT in order to let people und
 
 
 
---Change after sending the demo video--
+--Change after sending the demo video(Includes a touch of AI)--
 I have made a change that effects the color of the objects created. As the objects get heavier the blue color of the object gets darker. I have asked about the calculation amounts and how can i adjust the darkness of the colors to chatGPT in order to make them make sense.
