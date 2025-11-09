@@ -33,9 +33,7 @@ function computeTorques() {
     }
   }
 
-  // Torklar Console'da gözükür bunun sayesinde
   console.log('Torklar:', leftTorque, rightTorque);
-
   return { leftTorque, rightTorque, leftWeight, rightWeight };
 }
 
@@ -57,9 +55,13 @@ function renderObjects() {
 
   // Her obje için bir “mass” div’i oluştur
   for (let obj of objects) {
-    let massDiv = document.createElement('div'); // el yerine massDiv
+    let massDiv = document.createElement('div');
     massDiv.className = 'mass';
     massDiv.textContent = obj.weight;
+
+    // 🔵 Ağırlığa göre renk skalası (1 = açık mavi, 10 = koyu mavi)
+    let lightness = 80 - (obj.weight - 1) * 6; 
+    massDiv.style.backgroundColor = `hsl(210, 90%, ${lightness}%)`;
 
     // Objeyi tıklanan konuma göre yerleştir
     let percent = 50 + (obj.x / half) * 50;
@@ -119,8 +121,6 @@ resetBtn.addEventListener('click', function () {
 });
 
 // === BAŞLANGIÇ ===
-
-// Kayıtlı veriyi al ve uygula
 let saved = localStorage.getItem('seesawState');
 if (saved) {
   objects = JSON.parse(saved);
