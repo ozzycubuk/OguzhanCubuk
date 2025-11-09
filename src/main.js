@@ -99,3 +99,32 @@ function update() {
   // Güncel veriyi kaydet
   localStorage.setItem('seesawState', JSON.stringify(objects));
 }
+
+// Plank'e tıklanınca yeni obje ekle
+plank.addEventListener('click', function (e) {
+  let rect = plank.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+  let fromCenter = x - rect.width / 2;
+  let weight = randomWeight();
+
+  objects.push({ x: fromCenter, weight });
+  update();
+});
+
+// Reset butonuna tıklanınca sıfırla
+let resetBtn = document.getElementById('resetBtn');
+resetBtn.addEventListener('click', function () {
+  objects = [];
+  update();
+});
+
+// === BAŞLANGIÇ ===
+
+// Kayıtlı veriyi al ve uygula
+let saved = localStorage.getItem('seesawState');
+if (saved) {
+  objects = JSON.parse(saved);
+}
+
+// İlk kez çalıştır
+update();
