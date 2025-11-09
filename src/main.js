@@ -57,16 +57,16 @@ function renderObjects() {
 
   // Her obje için bir “mass” div’i oluştur
   for (let obj of objects) {
-    let el = document.createElement('div');
-    el.className = 'mass';
-    el.textContent = obj.weight;
+    let massDiv = document.createElement('div'); // el yerine massDiv
+    massDiv.className = 'mass';
+    massDiv.textContent = obj.weight;
 
     // Objeyi tıklanan konuma göre yerleştir
     let percent = 50 + (obj.x / half) * 50;
-    el.style.left = percent + '%';
+    massDiv.style.left = percent + '%';
 
     // Katmana ekle
-    objectsLayer.appendChild(el);
+    objectsLayer.appendChild(massDiv);
   }
 }
 
