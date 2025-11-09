@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  background: #fff; /* Sayfa arka planı beyaz */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 800px;
+  max-width: 95%;
+  padding: 24px;
+  background: linear-gradient(to bottom, #c9e9ff, #a9d8ff 60%, #91c9ff);
+  border: 1px solid #7bb3e6;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.infolar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: 600;
+}
+
+.scene {
+  position: relative;
+  height: 200px;
+  margin-top: 4px;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: #555;
+}
+
+.ucgen {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 32px solid red; /* kırmızı üçgen */
+}
+
+.plank {
+  position: absolute;
+  left: 50%;
+  bottom: 32px; /* 48 değil, üçgen yüksekliği kadar */
+  width: 400px;
+  height: 14px;
+  background: #000;
+  border-radius: 8px;
+  transform-origin: 50% 50%;
+  transform: translateX(-50%) rotate(0deg);
+  cursor: pointer;
+  transition: transform 0.5s ease-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
