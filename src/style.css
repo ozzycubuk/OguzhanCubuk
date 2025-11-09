@@ -68,3 +68,20 @@ body {
   transition: transform 0.5s ease-out;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ortada hizalar */
+  margin-top: 10px;
+}
+
+.controls button {
+  padding: 6px 10px;
+  background: #4fa3f7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
