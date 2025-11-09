@@ -45,3 +45,57 @@ function computeAngle(leftTorque, rightTorque) {
   let rawAngle = diff / 10;
   return limitAngle(rawAngle, -30, 30);
 }
+
+// Objeleri tahtanın üstüne çizer
+function renderObjects() {
+  // Eski objeleri temizle
+  objectsLayer.innerHTML = '';
+
+  // Tahtanın genişliğini al
+  let rect = plank.getBoundingClientRect();
+  let half = rect.width / 2;
+
+  // Her obje için bir “mass” div’i oluştur
+  for (let obj of objects) {
+    let el = document.createElement('div');
+    el.className = 'mass';
+    el.textContent = obj.weight;
+
+    // Objeyi tıklanan konuma göre yerleştir
+    let percent = 50 + (obj.x / half) * 50;
+    el.style.left = percent + '%';
+
+    // Katmana ekle
+    objectsLayer.appendChild(el);
+  }
+}
+
+// Hesaplanan açıyı tahtaya uygular
+function applyAngle(angle) {
+  let angleText = document.getElementById('angleText');
+  plank.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+  angleText.textContent = angle.toFixed(1);
+}
+
+// Her değişiklikte sahneyi günceller
+function update() {
+  let leftWeightEl = document.getElementById('leftWeight');
+  let rightWeightEl = document.getElementById('rightWeight');
+
+  let torques = computeTorques();
+  let leftTorque = torques.leftTorque;
+  let rightTorque = torques.rightTorque;
+  let leftWeight = torques.leftWeight;
+  let rightWeight = torques.rightWeight;
+
+  let angle = computeAngle(leftTorque, rightTorque);
+
+  leftWeightEl.textContent = leftWeight;
+  rightWeightEl.textContent = rightWeight;
+
+  renderObjects();
+  applyAngle(angle);
+
+  // Güncel veriyi kaydet
+  localStorage.setItem('seesawState', JSON.stringify(objects));
+}
